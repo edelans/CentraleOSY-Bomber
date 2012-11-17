@@ -9,8 +9,8 @@ using namespace cimg_library;
 using namespace std;
 
 #define LONGUEUR_MAX		24
-#define LARGEUR_MAX			18
-#define TAILLE_CASE			32
+#define LARGEUR_MAX		18
+#define TAILLE_CASE		32
 
 CImg<unsigned char> game(LONGUEUR_MAX*TAILLE_CASE, LARGEUR_MAX*TAILLE_CASE, 1, 3);
 
@@ -26,7 +26,7 @@ public:
 
 void drawing::initialize(const string file) const
 {
-	ifstream is(file); // tous les numéros codant les cases dans le fichier sont lues
+	ifstream is(file); // tous les numï¿½ros codant les cases dans le fichier sont lues
 	if(!is) 
         {       
             cerr << "Impossible d'ouvrir le fichier !" << endl;
@@ -34,16 +34,16 @@ void drawing::initialize(const string file) const
 	string s;
 	int longueur_niveau;
 	getline(is,s);
-	longueur_niveau = (s.size()+1)/2; // on récupère la taille du niveau (nombre de cases sur une ligne)
+	longueur_niveau = (s.size()+1)/2; // on rï¿½cupï¿½re la taille du niveau (nombre de cases sur une ligne)
 	is.seekg(0,ios::beg);
 
-	int décalage_X = (LONGUEUR_MAX - longueur_niveau - 3)*TAILLE_CASE/2;
-	int décalage_Y = (LARGEUR_MAX - longueur_niveau - 3)*TAILLE_CASE/2;
+	int dï¿½calage_X = (LONGUEUR_MAX - longueur_niveau - 3)*TAILLE_CASE/2;
+	int dï¿½calage_Y = (LARGEUR_MAX - longueur_niveau - 3)*TAILLE_CASE/2;
 
 	string nombre;
 	int NumeroCase = 1;
 
-	while (is >> nombre) // parcours de chaque case codée dans le fichier de niveau
+	while (is >> nombre) // parcours de chaque case codï¿½e dans le fichier de niveau
 	{
 		cout << nombre << endl;
 		int value =	atoi(nombre.c_str());
@@ -54,16 +54,16 @@ void drawing::initialize(const string file) const
 		switch (value)
 		{
 		case 1:
-			game.draw_image((NumeroColonne - 1/2)*TAILLE_CASE + décalage_X,(NumeroLigne - 1/2)*TAILLE_CASE + décalage_Y,sol);
+			game.draw_image((NumeroColonne - 1/2)*TAILLE_CASE + dï¿½calage_X,(NumeroLigne - 1/2)*TAILLE_CASE + dï¿½calage_Y,sol);
 			break;
 		case 2:
-			game.draw_image((NumeroColonne - 1/2)*TAILLE_CASE + décalage_X,(NumeroLigne - 1/2)*TAILLE_CASE + décalage_Y,murdestr);
+			game.draw_image((NumeroColonne - 1/2)*TAILLE_CASE + dï¿½calage_X,(NumeroLigne - 1/2)*TAILLE_CASE + dï¿½calage_Y,murdestr);
 			break;
 		case 3:
-			game.draw_image((NumeroColonne - 1/2)*TAILLE_CASE + décalage_X,(NumeroLigne - 1/2)*TAILLE_CASE + décalage_Y,mur);
+			game.draw_image((NumeroColonne - 1/2)*TAILLE_CASE + dï¿½calage_X,(NumeroLigne - 1/2)*TAILLE_CASE + dï¿½calage_Y,mur);
 			break;
 		default:
-			cerr << "Fichier non conforme au type attendu : la case numéro " << NumeroCase << " ne correspond pas à un type de terrain dans le champ attendu" << endl;
+			cerr << "Fichier non conforme au type attendu : la case numï¿½ro " << NumeroCase << " ne correspond pas ï¿½ un type de terrain dans le champ attendu" << endl;
 			break;
 		}
 		NumeroCase++;
