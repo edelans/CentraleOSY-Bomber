@@ -67,9 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\testprojet.cpp" />
+    <ClCompile Include="bombe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\CImg.h" />
+    <ClInclude Include="bombe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

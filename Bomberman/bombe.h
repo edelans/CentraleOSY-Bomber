@@ -18,7 +18,6 @@ class Bombe
 
     int m_timer;   // compte à rebours entre moment ou elle est posée et explosion
     int m_portee;  // nombre de blocs détruits dans chaque direction lors de l'explosion
-
 };
 
 #endif
