@@ -3,6 +3,17 @@
 using namespace std;
 
 
+
+Bombe::Bombe()   
+{
+    creatBomb(position, power);
+}
+
+Bombe::~Bomb() 
+{
+}
+
+
 void Bombe::decrementTimer()
 {
 
