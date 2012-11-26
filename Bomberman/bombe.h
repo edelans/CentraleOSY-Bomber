@@ -11,6 +11,7 @@ class Bombe
     void decrementTimer();   // 
     void explose();    // pour détruire les blocs detruisables et appeler afficheExplosion
 	void afficheExplosion();  // pour remplacer temporairement les blocs autour de la bombe par l'image d'explosion
+	void decrementTimer(); // pour décrémenter le timer à chaque boucle de temps
 	
 
 
