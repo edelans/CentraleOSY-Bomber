@@ -68,6 +68,8 @@
   <ItemGroup>
     <ClCompile Include="..\testprojet.cpp" />
     <ClCompile Include="bombe.cpp" />
+    <ClCompile Include="drawing2.cpp" />
+    <ClCompile Include="testprojet2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\CImg.h" />
