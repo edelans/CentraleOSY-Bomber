@@ -39,19 +39,17 @@ class objet
 class typeObstacle
 {
     public:
-        typeObstacle(bool destructible, bool passable, bool protection, bool piege);
+        typeObstacle(bool destructible, bool passable, bool protection);
         int     getId();
         bool    estDestructible();
         bool    estPassable();
         bool    estProtection();
-        bool    estPiege();
 
     private:
         int     id;
         bool    destructible;
         bool    passable;
         bool    protection;
-        bool    piege;
 };
 
 typedef map<string,typeObstacle*> listeTypeObstacle;

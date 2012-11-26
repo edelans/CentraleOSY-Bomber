@@ -104,7 +104,7 @@ void initialiserTypeObstacle(listeTypeObstacle &types, const char * fichier)
 
         }
 
-        typeObstacle t (typesParam[1], typesParam[2], typesParam[3], typesParam[4]);
+        typeObstacle t (typesParam[1], typesParam[2], typesParam[3]);
         types[typesId] = &t;
         compteur = 0;
 

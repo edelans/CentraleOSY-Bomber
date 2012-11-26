@@ -4,8 +4,7 @@
 #include <string>
 #include <iomanip>
 #include <fstream>
-#include <time.h>
-#include <windows.h>
+#include "drawing.h"
 
 using namespace cimg_library;
 using namespace std;
@@ -13,7 +12,6 @@ using namespace std;
 #define LONGUEUR_MAX		24
 #define LARGEUR_MAX			12
 #define TAILLE_CASE			32
-#define TEMPS_BOUCLE		0.2
 
 CImg<unsigned char> game(LONGUEUR_MAX*TAILLE_CASE, LARGEUR_MAX*TAILLE_CASE, 1, 3);
 CImg<unsigned char> bombe("bombe.bnp");
@@ -73,38 +71,4 @@ void drawing::initialize(const string file) const
 		NumeroCase++;
 	}
 	is.close();
-}
-
-
-
-int main()
-{
-	game.fill(0);
-	drawing d;
-	d.initialize("niveau1.lvl");
-	CImgDisplay disp(game, "bomberman");
-
-	time_t start,end;
-	time(&start);
-	switch (disp.released_key(0)) // retourne la dernière touche pressée
-	{
-	case 31U: // correspond à la touche Z
-			deplacerhaut();
-			disp.display(personnage); // permet de rafraichir une image en particulier !
-	case 44U:
-			deplacergauche();
-	case 45U:
-			deplacerbas();
-	case 46U:
-			deplacerdroite();
-	case 53U:
-			poserbombe();
-	}
-	time(&end);
-	double dif;
-	dif = difftime (end,start);
-	if (dif < TEMPS_BOUCLE)
-	{
-		Sleep(TEMPS_BOUCLE - dif);
-	}
 }

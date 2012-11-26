@@ -71,11 +71,6 @@ void Personnage::updateLastAction(time_t time)
 	m_lastAction = time;
 }
 
-int Personnage::afficheVitesse()
-{
-	return Deplacement m_dureeDeplacement;
-}
-
 void Personnage::deposeBombe()
 {
 	//à voir avec la classe Bombe...

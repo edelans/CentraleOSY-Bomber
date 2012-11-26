@@ -7,7 +7,6 @@
 #include <string>
 #include <iomanip>
 #include <fstream>
-#include <windows.h>
 
 #define LONGUEUR_MAX		24
 #define LARGEUR_MAX			12

@@ -21,7 +21,6 @@ int main()
 	{
 	time_t start,end;
 	time(&start);
-	disp.wait();
 	switch (disp.released_key(0)) // retourne la dernière touche pressée
 	{
 		cout << "touche lachée" << endl;

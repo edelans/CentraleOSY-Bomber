@@ -42,11 +42,10 @@ void objet::setName(string s){
 
 // Classe typeObstacle --------------
 
-typeObstacle::typeObstacle(bool destructible, bool passable, bool protection, bool piege):
+typeObstacle::typeObstacle(bool destructible, bool passable, bool protection):
     destructible(destructible),
     passable(passable),
-    protection(protection),
-    piege(piege)
+    protection(protection)
     {
     }
 
@@ -61,10 +60,6 @@ bool typeObstacle::estPassable(){
 
 bool typeObstacle::estProtection(){
     return this->protection;}
-
-bool typeObstacle::estPiege(){
-    return this->piege;}
-
 
 // Classe point -------------
 

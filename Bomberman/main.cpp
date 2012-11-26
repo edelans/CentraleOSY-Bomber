@@ -5,21 +5,51 @@
 #include <iomanip>
 #include <fstream>
 #include <time.h>
-#include <windows.h>
-#include "main.h"
 
 //nos en-têtes .h en lien direct avec le main (à compléter) :
 #include "drawing.h"
 #include "Objet.h"
 #include "Personnage.h" // indisp pour une usage en direct ou hérité par Objet.h ?
+#include "drawing.h"
+#include "cases.h"
+#include "carte.h"
 
-#define TEMPS_BOUCLE		0.2 //pour avoir des vitesses pour chaque personnage, TEMPS_BOUCLE est-il indisp ?
+#define TEMPS_BOUCLE		200 //pour avoir des vitesses pour chaque personnage, TEMPS_BOUCLE est-il indisp ?
 
 using namespace cimg_library;
 using namespace std;
 
 int main()
 {
+	carte m;
+    listeTypeObstacle types;
+
+    initialiserTypeObstacle(types, "obstacles.config");
+    initialiserCarte(types,m,"level.config");
+
+    objet obj;
+
+    objet* obj2 = m[coord (2,2)].getOccupant();
+    //string s = (*obj2).getName(); //ça plante ici
+    //typeObstacle *t = obs->getType();
+
+
+    //cout << s << endl;
+    cout << obj.getx() << "," << obj.gety() << endl;
+
+    cout << "Point (1,1) : " << m[coord (1,1)].etat() << endl;
+    cout << "Point (2,2) : " << m[coord (2,2)].etat() << endl;
+
+    deplacer(m, &obj, 2, 2);
+
+    cout << obj.getx() << "," << obj.gety() << endl;
+
+    cout << "Point (1,1) : " << m[coord (1,1)].etat() << endl;
+    cout << "Point (2,2) : " << m[coord (2,2)].etat() << endl;
+
+    // << " " << m[coord (1,2)] << " " << m[coord (1,3)] << endl
+    //     << m[coord (2,1)] << " " << m[coord (2,2)] << " " << m[coord (2,3)] << endl
+    //     << m[coord (3,1)] << " " << m[coord (3,2)] << " " << m[coord (3,3)];
 	//Conctruction des personnages :
 	Personnage Joueur (1);
 	Personnage Ennemi1 (2);
@@ -75,6 +105,6 @@ int main()
 	dif = difftime (end,start);
 	if (dif < TEMPS_BOUCLE)
 	{
-		Sleep(TEMPS_BOUCLE - dif);
+		disp.wait(TEMPS_BOUCLE - dif);
 	}
 }
