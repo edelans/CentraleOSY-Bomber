@@ -4,19 +4,22 @@
 #include <string>
 #include <iomanip>
 #include <fstream>
+#include <time.h>
+#include <windows.h>
 
 using namespace cimg_library;
 using namespace std;
 
 #define LONGUEUR_MAX		24
-#define LARGEUR_MAX			18
+#define LARGEUR_MAX			12
 #define TAILLE_CASE			32
+#define TEMPS_BOUCLE		0.2
 
 CImg<unsigned char> game(LONGUEUR_MAX*TAILLE_CASE, LARGEUR_MAX*TAILLE_CASE, 1, 3);
-
-CImg<unsigned char> sol("sol.bmp");
-CImg<unsigned char> murdestr("murdestr.bmp");
-CImg<unsigned char> mur("mur.bmp");
+CImg<unsigned char> bombe("bombe.bnp");
+CImg<unsigned char> sol("sol.bnp");
+CImg<unsigned char> murdestr("murdestr.bnp");
+CImg<unsigned char> mur("mur.bnp");
 
 class drawing
 {
@@ -50,6 +53,8 @@ void drawing::initialize(const string file) const
 		int NumeroColonne;
 		NumeroLigne = (NumeroCase-1)/longueur_niveau + 1;
 		NumeroColonne = NumeroCase - (NumeroCase-1)/longueur_niveau*longueur_niveau;
+		Case(NumeroLigne, NumeroColonne); // créer une classe de case par case identifiée par 2 numéros correspondant à la position (par exemple de 1 à 8 chacun pour un terrain de 8*8 cases)
+	// coller images correspondant aux numéros lus
 		switch (value)
 		{
 		case 1:
@@ -71,14 +76,35 @@ void drawing::initialize(const string file) const
 }
 
 
+
 int main()
 {
 	game.fill(0);
 	drawing d;
-	d.initialize("testniveau.txt");
-	CImgDisplay disp(game, "jeu");
+	d.initialize("niveau1.lvl");
+	CImgDisplay disp(game, "bomberman");
 
-	int i;
-	cin >> i;
-	return 0;
+	time_t start,end;
+	time(&start);
+	switch (disp.released_key(0)) // retourne la dernière touche pressée
+	{
+	case 31U: // correspond à la touche Z
+			deplacerhaut();
+			disp.display(personnage); // permet de rafraichir une image en particulier !
+	case 44U:
+			deplacergauche();
+	case 45U:
+			deplacerbas();
+	case 46U:
+			deplacerdroite();
+	case 53U:
+			poserbombe();
+	}
+	time(&end);
+	double dif;
+	dif = difftime (end,start);
+	if (dif < TEMPS_BOUCLE)
+	{
+		Sleep(TEMPS_BOUCLE - dif);
+	}
 }
