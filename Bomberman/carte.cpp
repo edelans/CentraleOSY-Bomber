@@ -96,7 +96,7 @@ void initialiserTypeObstacle(listeTypeObstacle &types, const char * fichier)
                 typesId = donnee;
             }else{
                 if ((donnee != "0") && (donnee != "1")){
-                    cerr << "Le fichier de configuration d'obstacles est invalide :\n Les colonnes ne doivent contenir que des 0 ou des 1\n" << donnee <<"\n\n";
+                    cerr << "Le fichier de configuration d'obstacles est invalide :" << '\n' << "Les colonnes ne doivent contenir que des 0 ou des 1" << '\n' << donnee << '\n' << '\n';
                 }else{
                     typesParam[compteur] = bool (donnee == "1");
                 }

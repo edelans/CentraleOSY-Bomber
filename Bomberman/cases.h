@@ -6,14 +6,6 @@
 
 using namespace std;
 
-/*
-struct coord
-{
-    int x;
-    int y;
-};
-*/
-
 typedef pair <int,int> coord;
 
 class objet
