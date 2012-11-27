@@ -48,7 +48,7 @@ void initialiserCarte(listeTypeObstacle types, carte &m, const char * fichier)
 		NumeroLigne = (NumeroCase-1)/longueur_niveau + 1;
 		NumeroColonne = NumeroCase - (NumeroCase-1)/longueur_niveau*longueur_niveau;
 
-		m[coord (NumeroLigne,NumeroColonne)] = point(NumeroLigne,NumeroColonne);
+		m[coord (NumeroLigne,NumeroColonne)] = point(NumeroLigne,NumeroColonne); // initialiser toutes les cases. Inverser l'ordre du = ? Qu'a t'on de défini à ce stade ?
 
         if (typeCase != "0")
         {
@@ -74,7 +74,7 @@ void initialiserCarte(listeTypeObstacle types, carte &m, const char * fichier)
 void initialiserTypeObstacle(listeTypeObstacle &types, const char * fichier)
 {
     ifstream is(fichier);
-    is.seekg(0,ios::beg);
+    is.seekg(0,ios::beg); // inutile si tu ne fais pas de getline ou autre maipulation préliminaire sur is
 
     //map<string,typeObstacle*> types;
     string typesId;
