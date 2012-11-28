@@ -25,8 +25,7 @@ int main()
 			{
 			default:
 				cout << "Pas de touche" << endl;
-				break;
-			case cimg::keyARROWUP:
+			case cimg::keyARROWUP: // correspond à la touche Z
 				cout << "haut" << endl;
 				break;
 			case cimg::keyARROWLEFT:
@@ -39,6 +38,8 @@ int main()
 				cout << "droite" << endl;
 				break;
 			}
+		}
+
 	disp.set_key();
 	time(&end);
 	double dif;
