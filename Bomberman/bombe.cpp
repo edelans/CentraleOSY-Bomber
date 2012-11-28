@@ -6,6 +6,7 @@ using namespace std;
 
 Bombe::Bombe()   
 {
+	// créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 
 }
 
@@ -35,13 +36,13 @@ for () // pour toutes les bombes sur la carte: trouver un moyen de pouvoir les p
 */
 
 
-void explose();    // pour détruire les blocs detruisables et appeler afficheExplosion
+void Bombe::explose();    // pour détruire les blocs detruisables et appeler afficheExplosion
 {
 
 }
 
 
-void afficheExplosion();  // pour remplacer temporairement les blocs autour de la bombe par l'image d'explosion
+void Bombe::afficheExplosion();  // pour remplacer temporairement les blocs autour de la bombe par l'image d'explosion
 {
 
 }
