@@ -6,6 +6,7 @@ using namespace std;
 
 Bombe::Bombe()   
 {
+	// créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 
 }
 
