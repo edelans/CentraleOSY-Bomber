@@ -74,5 +74,10 @@ void Personnage::updateLastAction(time_t time)
 void Personnage::deposeBombe()
 {
 	//à voir avec la classe Bombe...
+	if (m_compteurDeBombe<m_tailleSacBombe)
+	{
+		// a completer avec construction de la bombe
+		m_compteurDeBombe +=1;
+	}
 }
 

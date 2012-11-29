@@ -30,6 +30,7 @@ private:
 	int m_vie;
 	int m_maxVie; // nombre de points de vie max du personnage
 	int m_tailleSacBombe;
+	int m_compteurDeBombe;  // c'est le nombre de bombes non explosées que l'utilisateur a posé. Pour vérifier que le joueur ne pose pas trop de bombes en meme temps. Cet attribut doit etre inferieur à m_tailleSacBombe
 	int m_scopeDestruction[2]; // définit la zone de destruction (int, int)
 	int m_typePerso; //permet de définir 1: joueur ; 2: ordi, déplacement suiveur ; 3: ordi, déplacement aléatoire
 	int m_lastAction; // temps du dernier déplacement
