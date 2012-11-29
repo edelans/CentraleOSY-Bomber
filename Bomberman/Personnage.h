@@ -14,6 +14,7 @@
 #include "Deplacement.h"
 #include "objet.h"
 
+#define VITESSEMAX 5
 
 class Personnage : public objet
 {
@@ -22,6 +23,7 @@ public:
 	Personnage(int typePerso);// 1 = joueur, sinon ennemi
 	void    modifVie(int deltaVie); // en cas de gain de points vie (bonus) ou de perte (bombe), cette fonction ajuste les points du personnage
 	void    powerUpSacBombe(int deltaSac);
+	void    powerUpVitessDeplacement(int deltaVit);
 	bool    estVivant();
 	int     afficheLastAction();
 	void    updateLastAction(time_t time);
@@ -35,7 +37,8 @@ private:
 	int     m_scopeDestruction[2]; // définit la zone de destruction (int, int)
 	int     m_typePerso; //permet de définir 1: joueur ; 2: ordi, déplacement suiveur ; 3: ordi, déplacement aléatoire
 	int     m_lastAction; // temps du dernier déplacement
-	int Deplacement m_vitesseDeplacement; //héritage
+	int     m_vitesseDeplacement;
+
 };
 
 #endif
