@@ -1,6 +1,7 @@
 #include "carte.h"
+#include "obstacle.h"
 #include <cstring>
-#include <string>
+//#include <string>
 #include <sstream>
 using namespace std;
 
@@ -48,12 +49,13 @@ void initialiserCarte(listeTypeObstacle types, carte &m, const char * fichier)
 		NumeroLigne = (NumeroCase-1)/longueur_niveau + 1;
 		NumeroColonne = NumeroCase - (NumeroCase-1)/longueur_niveau*longueur_niveau;
 
-		m[coord (NumeroLigne,NumeroColonne)] = point(NumeroLigne,NumeroColonne); // initialiser toutes les cases. Inverser l'ordre du = ? Qu'a t'on de défini à ce stade ?
+		m[coord (NumeroLigne,NumeroColonne)] = point(NumeroLigne,NumeroColonne);
 
         if (typeCase != "0")
         {
             if (types[typeCase] != NULL){
                 obstacle obs(types[typeCase]);
+                char* nom = "obstacle";
                 obs.setName("obstacle");
                 deplacer(m, &obs, NumeroLigne, NumeroColonne);
             }else{
@@ -68,46 +70,5 @@ void initialiserCarte(listeTypeObstacle types, carte &m, const char * fichier)
     }
 
     is.close();
-
-}
-
-void initialiserTypeObstacle(listeTypeObstacle &types, const char * fichier)
-{
-    ifstream is(fichier);
-    is.seekg(0,ios::beg); // inutile si tu ne fais pas de getline ou autre maipulation préliminaire sur is
-
-    //map<string,typeObstacle*> types;
-    string typesId;
-    map<int,bool> typesParam;
-
-    string s;
-	//getline(is,s);
-    string donnee;
-    int compteur = 0;
-
-    while (getline(is,s))
-    {
-        istringstream split(s);
-
-        while(split >> donnee){
-            compteur++;
-            if (compteur == 1)
-            {
-                typesId = donnee;
-            }else{
-                if ((donnee != "0") && (donnee != "1")){
-                    cerr << "Le fichier de configuration d'obstacles est invalide :" << '\n' << "Les colonnes ne doivent contenir que des 0 ou des 1" << '\n' << donnee << '\n' << '\n';
-                }else{
-                    typesParam[compteur] = bool (donnee == "1");
-                }
-            }
-
-        }
-
-        typeObstacle t (typesParam[1], typesParam[2], typesParam[3]);
-        types[typesId] = &t;
-        compteur = 0;
-
-    }
 
 }

@@ -23,7 +23,7 @@ Personnage::Personnage(int typePerso) // constructeur du personnage
 	m_typePerso(typePerso);
 	m_scopeDestruction[0] = 1; // zone de destruction latérale horizontale des bombes poseés par le personnage (ici : 1 case de chaque côté de la bombe)
 	m_scopeDestruction[1] = 1; // zone de destruction latérale verticale des bombes poseés par le personnage
-
+    m_vitesseDeplacement = 1;
 }
 
 
@@ -47,6 +47,19 @@ void Personnage::modifVie(signed int deltaVie) // prévoit les bonus de type poti
 void Personnage::powerUpSacBombe(int deltaSac)
 {
 	m_tailleSacBombe += deltaSac;
+}
+
+void Personnage::powerUpVitessDeplacement(int deltaVit)
+{
+    m_vitesseDeplacement += deltaVit;
+    if (m_vitesseDeplacement <= 0)
+    {
+        m_vitesseDeplacement = 1;
+    }
+    else if (m_vitesseDeplacement >= VITESSEMAX)
+    {
+        m_vitesseDeplacement = VITESSEMAX;
+    }
 }
 
 bool Personnage::estVivant()
