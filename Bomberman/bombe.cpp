@@ -1,19 +1,42 @@
 #include "Bombe.h"
-
+#include <set>
 using namespace std;
+
+
+
+void Bombe::boucleTestTimerPourExplosion() // fonciton à rajouter dans le main.cpp à chaque fin de "boucle de temps"
+{
+	for_each (instances.begin(), instances.end(), testTimerPourExplosion);  // pour toutes les bombes sur la carte: trouver un moyen de pouvoir les parcourir: probablement avec un tableau dynamique statique dont les cases enregistrent un pointeur vers chaque instance. Creuser aussi http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class
+} 
+
+
+void Bombe::testTimerPourExplosion(Bombe* b)
+	{
+		if (b->m_timer == 0)
+		{
+			b->explose();  
+			b->~Bombe();  
+		}
+		else 
+		{
+			b->m_timer -= 1   
+		}
+	}
+
 
 
 
 Bombe::Bombe()   
 {
-	// créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
-
+	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 }
 
 Bombe::~Bombe() 
 {
 	// afficher l'image de l'explosion ? -> non, affiché par explose()
 
+	instances.erase(instances.find(this));  // on enleve le pointeur vers la bombe dans le tableau d'instances
+	
 }
 
 
@@ -23,26 +46,16 @@ void Bombe::decrementTimer()
 }
 
 
-/* // code à rajouter dans le main.cpp à chaque fin de "boucle de temps"
-for () // pour toutes les bombes sur la carte: trouver un moyen de pouvoir les parcourir: probablement avec un tableau dynamique statique dont les cases enregistrent un pointeur vers chaque instance. Creuser aussi http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class
-{
-	if (m_timer == 0)
-	{
-		explose();   //// ATTENTION: rajouter l'objet avant la méthode...dépend de la déclaration de la boucle for (parcours des bombes posées sur la carte)
-		~Bombe();   // pour détruire l'instance de la bombe
-	}
-}
-
-*/
 
 
-void Bombe::explose();    // pour détruire les blocs detruisables et appeler afficheExplosion
+
+void Bombe::explose()    // pour détruire les blocs detruisables et appeler afficheExplosion
 {
 
 }
 
 
-void Bombe::afficheExplosion();  // pour remplacer temporairement les blocs autour de la bombe par l'image d'explosion
+void Bombe::afficheExplosion()  // pour remplacer temporairement les blocs autour de la bombe par l'image d'explosion
 {
 
 }
