@@ -6,7 +6,10 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include "cases.h"
+
+#include "objet.h"
+#include "typeObstacle.h"
+#include "point.h"
 
 using namespace std;
 
@@ -15,7 +18,6 @@ typedef map<coord,point> carte;
 
 void deplacer (carte &m, objet *obj, int x, int y);
 
-void initialiserTypeObstacle(listeTypeObstacle &types, const char * fichier);
 void initialiserCarte(listeTypeObstacle types, carte &m, const char * fichier);
 
 
