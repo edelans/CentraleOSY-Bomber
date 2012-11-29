@@ -1,5 +1,6 @@
 #include "Bombe.h"
 #include <set>
+#include <algorithm> // indispensable pour le for_each
 using namespace std;
 
 
@@ -14,12 +15,17 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 	{
 		if (b->m_timer == 0)
 		{
-			b->explose();  
+			b->enleverAffichageExplosion();  
 			b->~Bombe();  
+		}
+		else if (b->m_timer > 0 && b->m_timer < 5 )  // c'est ici qu'est réglée la durée de l'explosion !
+		{
+			b->affichageExplosion(); 
+			b->m_timer -= 1 ; 
 		}
 		else 
 		{
-			b->m_timer -= 1   
+			b->m_timer -= 1 ;  
 		}
 	}
 
@@ -33,16 +39,7 @@ Bombe::Bombe()
 
 Bombe::~Bombe() 
 {
-	// afficher l'image de l'explosion ? -> non, affiché par explose()
-
 	instances.erase(instances.find(this));  // on enleve le pointeur vers la bombe dans le tableau d'instances
-	
-}
-
-
-void Bombe::decrementTimer()
-{
-	m_timer -= 1;  // nb: qd le timer est à 0, un if ds la boucle de temps le detecte et fait exploser la bombe
 }
 
 
@@ -55,7 +52,7 @@ void Bombe::explose()    // pour détruire les blocs detruisables et appeler affi
 }
 
 
-void Bombe::afficheExplosion()  // pour remplacer temporairement les blocs autour de la bombe par l'image d'explosion
+void Bombe::afficheExplosion()  // pour remplacer temporairement les blocs autour de la bombe par l'image d'explosion, dans la limite de la portée de la bombe
 {
 
 }
