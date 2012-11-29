@@ -30,10 +30,14 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 	}
 
 
+// a voir aussi pour la gestion du timer: http://www.cppfrance.com/forum/sujet-GESTION-TIMER_1422701.aspx
 
 
 Bombe::Bombe()   
 {
+	m_timer = 20;
+	m_portee = 2;
+
 	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 }
 
@@ -46,13 +50,13 @@ Bombe::~Bombe()
 
 
 
-void Bombe::explose()    // pour détruire les blocs detruisables et appeler afficheExplosion
+void Bombe::explose()    // pour détruire les blocs destructibles et appeler afficheExplosion()
 {
-
+	// est-ce la bonne classe pour cette fonction ??
 }
 
 
 void Bombe::afficheExplosion()  // pour remplacer temporairement les blocs autour de la bombe par l'image d'explosion, dans la limite de la portée de la bombe
 {
-
+	// est-ce la bonne classe pour cette fonction ??
 }

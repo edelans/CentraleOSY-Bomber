@@ -27,8 +27,10 @@ public:
 private:
 	int		m_timer;   // compte à rebours entre moment ou elle est posée et explosion
 	int		m_portee;  // nombre de blocs détruits dans chaque direction lors de l'explosion
-	bool	m_isExploding;  // correspond à l'etat ou les images de l'explosion sont affichées
-	bool	m_isExploded;   // correspond a l'etat ou on a arrete d'afficher les images d'explosion
+
+// a voir si on a besoin des attributs suivants
+//	bool	m_isExploding;  // correspond à l'etat ou les images de l'explosion sont affichées
+//	bool	m_isExploded;   // correspond a l'etat ou on a arrete d'afficher les images d'explosion
 };
 
 std::set<Bombe> Bombe::instances;  // pour etre conforme a http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class . j'imagine que c'est une sorte d'initialisation.
