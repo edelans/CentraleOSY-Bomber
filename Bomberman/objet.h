@@ -18,7 +18,8 @@ class Objet
         int     gety();
         void    setCoord(int x, int y);
         bool    estPassable();
-    private:
+
+    protected:  // pour que les attributs soient accessibles depuis les classes filles (nécessaire pour le deposeBombe() de Personnage)
         coord   m_coordonnees;
         bool    m_passable;
 };

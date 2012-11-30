@@ -2,6 +2,7 @@
 #include <algorithm> // indispensable pour le for_each
 
 #include "Bombe.h"
+#include "Personnage.h"
 
 using namespace std;
 
@@ -18,8 +19,10 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 		if (b->m_timer == 0)
 		{
 			b->enleverAffichageExplosion();  
+			decrementeCompteurDeBombe(b->m_adressePersoProprio); 			// il manque ici la decrementation du compteurDeBombe du personnage !!!! /////////////\\\\\\\\\\\\\\\\\\\ !!!!!!!!!!!!
 			b->~Bombe(); 
-			// il manque ici la decrementation du compteurDeBombe du personnage !!!! /////////////\\\\\\\\\\\\\\\\\\\ !!!!!!!!!!!!
+
+
 		}
 		else if (b->m_timer > 0 && b->m_timer < 5 )  // c'est ici qu'est réglée la durée de l'explosion !
 		{
@@ -36,13 +39,13 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 // a voir aussi pour la gestion du timer: http://www.cppfrance.com/forum/sujet-GESTION-TIMER_1422701.aspx
 
 
-Bombe::Bombe() : Objet(), m_timer(20), m_portee(2)  // pas sur qu'on ait besoin de ce constructeur, je ne sais pas à quoi correspond un constructeur par défaut (sans arguments) puisqu'une bombe aura forcément des coordonnées.
+Bombe::Bombe() : Objet(), m_timer(20), m_portee(2), m_adressePersoProprio(0)  // pas sur qu'on ait besoin de ce constructeur, je ne sais pas à quoi correspond un constructeur par défaut (sans arguments) puisqu'une bombe aura forcément des coordonnées.
 {
 	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 }
 
 
-Bombe::Bombe(coord xy) : Objet(xy), m_timer(20), m_portee(2)  
+Bombe::Bombe(coord xy, int puissance, int proprietaire) : Objet(xy), m_timer(20), m_portee(puissance), m_adressePersoProprio(proprietaire) 
 {
 	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 }

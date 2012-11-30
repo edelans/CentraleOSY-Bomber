@@ -6,7 +6,14 @@ CImg<unsigned char> pictoJoueur(Joueur.png);
 CImg<unsigned char> pictoEnnemi(Ennemi.png);
 
 
-Personnage::Personnage(int typePerso) // constructeur du personnage
+
+void	Personnage::decrementeCompteurDeBombe(Personnage* p)
+{
+	p->m_compteurDeBombe-=1;
+}
+
+
+Personnage::Personnage(int typePerso) : Objet() // constructeur du personnage
 {
 	if (m_typePerso = 1)
 	{
@@ -84,11 +91,12 @@ void Personnage::updateLastAction(time_t time)
 	m_lastAction = time;
 }
 
+
 void Personnage::deposeBombe()
 {
 	if (m_compteurDeBombe<m_tailleSacBombe)
 	{
-		Bombe(m_coordonnees);   //on appelle le constructeur de la classe Bombe avec les coordonnées du personnage.
+		Bombe(m_coordonnees, m_scopeDestruction, this);   //on appelle le constructeur de la classe Bombe avec les coordonnées du personnage.
 		m_compteurDeBombe +=1;
 	}
 }
