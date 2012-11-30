@@ -8,7 +8,7 @@ CImg<unsigned char> pictoEnnemi(Ennemi.png);
 
 Personnage::Personnage(int typePerso) // constructeur du personnage
 {
-	if typePerso = 1
+	if (m_typePerso = 1)
 	{
 		m_picto(pictoJoueur); // personnage du joueur
 	}
@@ -64,7 +64,7 @@ void Personnage::powerUpVitessDeplacement(int deltaVit)
 
 bool Personnage::estVivant()
 {
-	if m_vie > 0
+	if (m_vie > 0)
 	{
 		return true;
 	}
@@ -86,10 +86,9 @@ void Personnage::updateLastAction(time_t time)
 
 void Personnage::deposeBombe()
 {
-	//à voir avec la classe Bombe...
 	if (m_compteurDeBombe<m_tailleSacBombe)
 	{
-		// a completer avec construction de la bombe
+		Bombe(m_coordonnees);   //on appelle le constructeur de la classe Bombe avec les coordonnées du personnage.
 		m_compteurDeBombe +=1;
 	}
 }

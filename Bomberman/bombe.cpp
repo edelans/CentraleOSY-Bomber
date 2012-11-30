@@ -18,7 +18,8 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 		if (b->m_timer == 0)
 		{
 			b->enleverAffichageExplosion();  
-			b->~Bombe();  
+			b->~Bombe(); 
+			// il manque ici la decrementation du compteurDeBombe du personnage !!!! /////////////\\\\\\\\\\\\\\\\\\\ !!!!!!!!!!!!
 		}
 		else if (b->m_timer > 0 && b->m_timer < 5 )  // c'est ici qu'est réglée la durée de l'explosion !
 		{

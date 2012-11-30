@@ -12,11 +12,11 @@
 
 #include "Bombe.h"
 #include "Deplacement.h"
-#include "objet.h"
+#include "Objet.h"
 
 #define VITESSEMAX 5
 
-class Personnage : public objet
+class Personnage : public Objet
 {
 public:
 	Personnage(); // constructeur par défaut
@@ -28,7 +28,7 @@ public:
 	int     afficheLastAction();
 	void    updateLastAction(time_t time);
 	int     afficheVitesse();
-	void    deposeBombe(int x, int y); // x et y sont les coordoinnées du lieu de dépôt
+	void    deposeBombe(); // pas besoin de donner des coordonnees en argument, comme Personnage herite de Objet, m_coordonnees est un attribut de Personnage
 
 private:
 	int		m_vie;

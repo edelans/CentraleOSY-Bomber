@@ -34,9 +34,3 @@ void Objet::setCoord(int x, int y){
 bool Objet::estPassable(){
     return this->m_passable;}
 
-char* Objet::getName(){
-    return this->m_name;}
-
-void Objet::setName(char* s){
-    this->m_name = s;}
-
