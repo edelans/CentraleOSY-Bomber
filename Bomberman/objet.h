@@ -13,15 +13,12 @@ class Objet
 		Objet();
 		Objet(coord xy);
 		~Objet();
-        char*   getName();
-        void    setName(char* s);
         coord   getCoord();
         int     getx();
         int     gety();
         void    setCoord(int x, int y);
         bool    estPassable();
     private:
-        char*   m_name;
         coord   m_coordonnees;
         bool    m_passable;
 };
