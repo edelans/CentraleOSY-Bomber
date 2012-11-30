@@ -1,7 +1,7 @@
-#include "Bombe.h"
 #include <set>
 #include <algorithm> // indispensable pour le for_each
-#include Objet.h
+
+#include "Bombe.h"
 
 using namespace std;
 

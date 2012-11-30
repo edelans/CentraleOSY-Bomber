@@ -3,11 +3,11 @@
 
 #include <string>
 #include <set>
-#include Objet.h
+#include "Objet.h"
 
 
 
-class Bombe : public objet //Bombe herite de objet pour avoir des coordonnees !
+class Bombe : public Objet //Bombe herite de objet pour avoir des coordonnees !
 {
 	static	std::set<Bombe const *> instances;  // on crée un set nommé "instances", pour l'instant vide, et qui contiendra des pointeurs vers les bombes, et qui va référencer les instances de Bombe, ce qui permettra de compter les bombes sur la carte et de les atteindre.  http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class
 	static void		boucleTestTimerPourExplosion();  // fonciton à rajouter dans le main.cpp à chaque fin de "boucle de temps". Elle applique la fonction testTimerPourExplosion() à toutes les instances de bombes
