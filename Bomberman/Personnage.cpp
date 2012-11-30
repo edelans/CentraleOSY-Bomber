@@ -7,7 +7,7 @@ CImg<unsigned char> pictoEnnemi(Ennemi.png);
 
 
 
-void	Personnage::decrementeCompteurDeBombe(Personnage* p)
+void Personnage::decrementeCompteurDeBombe(Personnage* p)
 {
 	p->m_compteurDeBombe-=1;
 }

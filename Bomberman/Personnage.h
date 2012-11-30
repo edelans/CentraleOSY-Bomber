@@ -18,11 +18,10 @@
 
 class Personnage : public Objet
 {
-	static void		decrementeCompteurDeBombe(Personnage* p); 
-
 public:
 	Personnage(); // constructeur par défaut
 	Personnage(int typePerso);// 1 = joueur, sinon ennemi
+	static void		decrementeCompteurDeBombe(Personnage* p); 
 	void    modifVie(int deltaVie); // en cas de gain de points vie (bonus) ou de perte (bombe), cette fonction ajuste les points du personnage
 	void    powerUpSacBombe(int deltaSac);
 	void    powerUpVitessDeplacement(int deltaVit);
