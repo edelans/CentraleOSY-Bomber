@@ -64,54 +64,16 @@
     <None Include="..\murdestr.bmp" />
     <None Include="..\sol.bmp" />
     <None Include="..\testniveau.txt" />
+    <None Include="bombe.bmp" />
+    <None Include="explosion.bmp" />
+    <None Include="mur.bmp" />
+    <None Include="murdestr.bmp" />
+    <None Include="sol.bmp" />
+    <None Include="testniveau.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bombe.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="carte.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="cases.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="drawing.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="main2.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="objet.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="obstacle.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Personnage.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="point.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="testEdouard.cpp" />
-    <ClCompile Include="testprojet.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="testprojet2.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="typeObstacle.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\CImg.h" />
     <ClInclude Include="bombe.h" />
     <ClInclude Include="carte.h" />
-    <ClInclude Include="cases.h" />
     <ClInclude Include="CImg.h" />
     <ClInclude Include="drawing.h" />
     <ClInclude Include="objet.h" />
@@ -119,6 +81,21 @@
     <ClInclude Include="Personnage.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="typeObstacle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bombe.cpp" />
+    <ClCompile Include="carte.cpp" />
+    <ClCompile Include="drawing.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main2.cpp" />
+    <ClCompile Include="objet.cpp" />
+    <ClCompile Include="obstacle.cpp" />
+    <ClCompile Include="Personnage.cpp" />
+    <ClCompile Include="point.cpp" />
+    <ClCompile Include="testEdouard.cpp" />
+    <ClCompile Include="testprojet.cpp" />
+    <ClCompile Include="testprojet2.cpp" />
+    <ClCompile Include="typeObstacle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

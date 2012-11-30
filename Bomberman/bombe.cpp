@@ -1,6 +1,8 @@
 #include "Bombe.h"
 #include <set>
 #include <algorithm> // indispensable pour le for_each
+#include Objet.h
+
 using namespace std;
 
 
@@ -20,7 +22,7 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 		}
 		else if (b->m_timer > 0 && b->m_timer < 5 )  // c'est ici qu'est réglée la durée de l'explosion !
 		{
-			b->affichageExplosion(); 
+			b->afficheExplosion(); 
 			b->m_timer -= 1 ; 
 		}
 		else 
@@ -33,11 +35,14 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 // a voir aussi pour la gestion du timer: http://www.cppfrance.com/forum/sujet-GESTION-TIMER_1422701.aspx
 
 
-Bombe::Bombe()   
+Bombe::Bombe() : Objet(), m_timer(20), m_portee(2)  // pas sur qu'on ait besoin de ce constructeur, je ne sais pas à quoi correspond un constructeur par défaut (sans arguments) puisqu'une bombe aura forcément des coordonnées.
 {
-	m_timer = 20;
-	m_portee = 2;
+	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
+}
 
+
+Bombe::Bombe(coord xy) : Objet(xy), m_timer(20), m_portee(2)  
+{
 	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 }
 

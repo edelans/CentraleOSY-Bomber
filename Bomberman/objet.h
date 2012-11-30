@@ -3,13 +3,16 @@
 
 #include <map>
 
-using namespace std;
+// using namespace std; ATTENTION : PAS de namespace std dans les .h (cf site du zero)
 
-typedef pair <int,int> coord;
+typedef std::pair <int,int> coord;
 
-class objet
+class Objet
 {
     public:
+		Objet();
+		Objet(coord xy);
+		~Objet();
         char*   getName();
         void    setName(char* s);
         coord   getCoord();
@@ -18,9 +21,9 @@ class objet
         void    setCoord(int x, int y);
         bool    estPassable();
     private:
-        char*   name;
-        coord   coordonnees;
-        bool    passable;
+        char*   m_name;
+        coord   m_coordonnees;
+        bool    m_passable;
 };
 
 

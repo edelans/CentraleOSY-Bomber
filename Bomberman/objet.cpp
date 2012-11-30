@@ -1,28 +1,42 @@
-#include "objet.h"
+#include "Objet.h"
 
 
-int objet::getx(){
-    return this->coordonnees.first;}
 
-int objet::gety(){
-    return this->coordonnees.second;}
+Objet::Objet() : m_coordonnees(), m_passable(false)   // Ed: je sais pas quoi mettre ici pour les coordonnees du constructeur par defaut
+{
+}
 
-coord objet::getCoord(){
-    return this->coordonnees;}
+Objet::Objet(coord xy) : m_coordonnees(xy), m_passable(false)  // surcharge du constructeur pour qu'il accepte d'etre initialisé avec des coordonnées en argument
+{
+}
 
-void objet::setCoord(int x, int y){
+Objet::~Objet()
+{
+}
+
+
+int Objet::getx(){
+    return this->m_coordonnees.first;}
+
+int Objet::gety(){
+    return this->m_coordonnees.second;}
+
+coord Objet::getCoord(){
+    return this->m_coordonnees;}
+
+void Objet::setCoord(int x, int y){
     coord c;
     c.first = x;
     c.second = y;
-    this->coordonnees = c;
+    this->m_coordonnees = c;
     }
 
-bool objet::estPassable(){
-    return this->passable;}
+bool Objet::estPassable(){
+    return this->m_passable;}
 
-char* objet::getName(){
-    return this->name;}
+char* Objet::getName(){
+    return this->m_name;}
 
-void objet::setName(char* s){
-    this->name = s;}
+void Objet::setName(char* s){
+    this->m_name = s;}
 
