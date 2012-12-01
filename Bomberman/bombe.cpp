@@ -45,7 +45,7 @@ Bombe::Bombe() : Objet(), m_timer(20), m_portee(2), m_adressePersoProprio(0)  //
 }
 
 
-Bombe::Bombe(coord xy, int puissance, int proprietaire) : Objet(xy), m_timer(20), m_portee(puissance), m_adressePersoProprio(proprietaire) 
+Bombe::Bombe(coord xy, int puissance, Personnage* proprietaire) : Objet(xy), m_timer(20), m_portee(puissance), m_adressePersoProprio(proprietaire) 
 {
 	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 }
@@ -69,3 +69,6 @@ void Bombe::afficheExplosion()  // pour remplacer temporairement les blocs autou
 {
 	// est-ce la bonne classe pour cette fonction ??
 }
+
+
+std::set<Bombe const *> Bombe::instances;  // Initialisation de l'attribut statique (oui oui ca se met bien ds le cpp, cf sdz).pour etre conforme a http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class . 

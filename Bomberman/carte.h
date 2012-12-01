@@ -16,7 +16,7 @@ using namespace std;
 typedef map<coord,point> carte;
 
 
-void deplacer (carte &m, objet *obj, int x, int y);
+void deplacer (carte &m, Objet *obj, int x, int y);
 
 void initialiserCarte(listeTypeObstacle types, carte &m, const char * fichier);
 

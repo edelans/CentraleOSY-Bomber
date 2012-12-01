@@ -27,7 +27,7 @@ int point::gety(){
 bool point::estOccupe(){
     return this->occupe;}
 
-void point::setOccupant(objet* obj){
+void point::setOccupant(Objet* obj){
     this->occupant = obj;
     if (obj != NULL){
         this->occupe = true;
@@ -36,7 +36,7 @@ void point::setOccupant(objet* obj){
     }
 }
 
-objet* point::getOccupant(){
+Objet* point::getOccupant(){
     return this->occupant;}
 
 string point::etat(){

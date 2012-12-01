@@ -1,7 +1,6 @@
 #ifndef PERSONNAGE
 #define PERSONNAGE
 
-#include "assets/CImg.h"
 //#include <iostream>
 //#include <stdio.h>
 //#include <string>
@@ -11,7 +10,6 @@
 #include <windows.h> // pas sûr que tout ça soit nécessaire ici
 
 #include "Bombe.h"  // nécessaire pour appeler le constructeur de Bombe
-#include "Deplacement.h"
 #include "Objet.h"
 
 #define VITESSEMAX 5

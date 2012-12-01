@@ -1,7 +1,7 @@
 #ifndef POINT_H_INCLUDED
 #define POINT_H_INCLUDED
 
-#include "objet.h"
+#include "Objet.h"
 #include <string>
 
 using namespace std;
@@ -16,14 +16,14 @@ class point //le nom case est déjà pris
         int     gety();
         bool    estOccupe();
         string  etat();
-        objet*  getOccupant();
-        void    setOccupant(objet* obj);
+        Objet*  getOccupant();
+        void    setOccupant(Objet* obj);
     private:
         coord   coordonnees;
         //int     coordx;
         //int     coordy;
         bool    occupe;
-        objet*  occupant;
+        Objet*  occupant;
 };
 
 
