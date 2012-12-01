@@ -1,5 +1,9 @@
 #include "Personnage.h"
 
+#define TAILLE_CASE				32
+#define TAILLE_PERSONNAGE		TAILLE_CASE-10 // la différence de taille doit être paire
+#define VITESSE_DEPLACEMENT		TAILLE_CASE/4
+
 using namespace std;
 
 CImg<unsigned char> pictoJoueur(Joueur.png);
@@ -24,13 +28,10 @@ Personnage::Personnage(int typePerso) : Objet() // constructeur du personnage
 		m_picto(pictoEnnemi);
 	}
 	m_vie(m_maxVie);
-	m_maxVie(100);
-	//m_vitesse (??) => On met des niveau de vitesse genre 1,2,3 pour chaque personnage ?
-	m_tailleSacBombe(100); //valeur à discuter
+	m_maxVie(3);
+	m_tailleSacBombe(2); 
 	m_typePerso(typePerso);
-	m_scopeDestruction[0] = 1; // zone de destruction latérale horizontale des bombes poseés par le personnage (ici : 1 case de chaque côté de la bombe)
-	m_scopeDestruction[1] = 1; // zone de destruction latérale verticale des bombes poseés par le personnage
-    m_vitesseDeplacement = 1;
+	m_scopeDestruction = 3; // zone de destruction des bombes poseés par le personnage
 }
 
 
@@ -54,19 +55,6 @@ void Personnage::modifVie(signed int deltaVie) // prévoit les bonus de type poti
 void Personnage::powerUpSacBombe(int deltaSac)
 {
 	m_tailleSacBombe += deltaSac;
-}
-
-void Personnage::powerUpVitessDeplacement(int deltaVit)
-{
-    m_vitesseDeplacement += deltaVit;
-    if (m_vitesseDeplacement <= 0)
-    {
-        m_vitesseDeplacement = 1;
-    }
-    else if (m_vitesseDeplacement >= VITESSEMAX)
-    {
-        m_vitesseDeplacement = VITESSEMAX;
-    }
 }
 
 bool Personnage::estVivant()
@@ -98,6 +86,36 @@ void Personnage::deposeBombe()
 	{
 		Bombe(m_coordonnees, m_scopeDestruction, this);   //on appelle le constructeur de la classe Bombe avec les coordonnées du personnage.
 		m_compteurDeBombe +=1;
+	}
+}
+
+void Personnage::deplacerhaut()
+{
+	int x = Personnage.getx();
+	int y = Personnage.gety();
+	int decalage_x_gauche = x-x/TAILLE_CASE*TAILLE_CASE; // nombre positif, calcule de combien de pixels le personnage est décalé du bord de sa case actuelle
+
+	if (decalage_x_gauche < TAILLE_PERSONNAGE/2) // empiète sur la case de gauche
+	{
+		if (y/TAILLE_CASE > 0 && carte[coord(x/TAILLE_CASE, y/TAILLE_CASE)].estPassable && carte[coord(x/TAILLE_CASE+1, y/TAILLE_CASE)].estPassable) // les 2 cases gauche haut et haut doivent être passables
+		{
+			m_coordonnees.second -= VITESSE_DEPLACEMENT;
+		}
+
+	}
+	else if (decalage_x_gauche > TAILLE_CASE-TAILLE_PERSONNAGE) // empiète sur la case de droite
+	{
+		if (y/TAILLE_CASE > 0 && carte[coord(x/TAILLE_CASE+1, y/TAILLE_CASE)].estPassable && carte[coord(x/TAILLE_CASE+2, y/TAILLE_CASE)].estPassable) // les 2 cases droite haut et haut doivent être passables
+		{
+			m_coordonnees.second -= VITESSE_DEPLACEMENT;
+		}
+	}
+	else
+	{
+		if (y/TAILLE_CASE > 0 && carte[coord(x/TAILLE_CASE+1, y/TAILLE_CASE)].estPassable) // la case du dessus doit etre passable
+		{
+			m_coordonnees.second -= VITESSE_DEPLACEMENT;
+		}
 	}
 }
 

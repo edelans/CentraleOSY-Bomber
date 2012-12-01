@@ -14,7 +14,7 @@
 #include "cases.h"
 #include "carte.h"
 
-#define TEMPS_BOUCLE		200 //pour avoir des vitesses pour chaque personnage, TEMPS_BOUCLE est-il indisp ?
+#define TEMPS_BOUCLE		200
 
 using namespace cimg_library;
 using namespace std;

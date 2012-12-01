@@ -38,7 +38,6 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 
 // a voir aussi pour la gestion du timer: http://www.cppfrance.com/forum/sujet-GESTION-TIMER_1422701.aspx
 
-
 Bombe::Bombe() : Objet(), m_timer(20), m_portee(2), m_adressePersoProprio(0)  // pas sur qu'on ait besoin de ce constructeur, je ne sais pas à quoi correspond un constructeur par défaut (sans arguments) puisqu'une bombe aura forcément des coordonnées.
 {
 	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
