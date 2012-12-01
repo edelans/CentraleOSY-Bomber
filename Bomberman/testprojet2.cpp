@@ -38,7 +38,6 @@ int main()
 				cout << "droite" << endl;
 				break;
 			}
-		}
 
 	disp.set_key();
 	time(&end);
