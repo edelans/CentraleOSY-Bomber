@@ -1,4 +1,5 @@
 #include "Personnage.h"
+#include "carte.h"
 
 #define TAILLE_CASE				32
 #define TAILLE_PERSONNAGE		TAILLE_CASE-10 // la différence de taille doit être paire
