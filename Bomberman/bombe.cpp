@@ -11,7 +11,7 @@ using namespace std;
 void Bombe::boucleTestTimerPourExplosion() // fonciton à rajouter dans le main.cpp à chaque fin de "boucle de temps"
 {
 	for_each (instances.begin(), instances.end(), testTimerPourExplosion);  // pour toutes les bombes sur la carte: trouver un moyen de pouvoir les parcourir: probablement avec un tableau dynamique statique dont les cases enregistrent un pointeur vers chaque instance. Creuser aussi http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class
-} 
+}
 
 
 void Bombe::testTimerPourExplosion(Bombe* b)
@@ -20,18 +20,18 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 		{
 			b->enleverAffichageExplosion();
 			Personnage::decrementeCompteurDeBombe(b->m_adressePersoProprio); 			// il manque ici la decrementation du compteurDeBombe du personnage !!!! /////////////\\\\\\\\\\\\\\\\\\\ !!!!!!!!!!!!
-			b->~Bombe(); 
+			b->~Bombe();
 
 
 		}
 		else if (b->m_timer > 0 && b->m_timer < 5 )  // c'est ici qu'est réglée la durée de l'explosion !
 		{
-			b->afficheExplosion(); 
-			b->m_timer -= 1 ; 
+			b->afficheExplosion();
+			b->m_timer -= 1 ;
 		}
-		else 
+		else
 		{
-			b->m_timer -= 1 ;  
+			b->m_timer -= 1 ;
 		}
 	}
 
@@ -44,12 +44,16 @@ Bombe::Bombe() : Objet(), m_timer(20), m_portee(2), m_adressePersoProprio(0)  //
 }
 
 
-Bombe::Bombe(coord xy, int puissance, Personnage* proprietaire) : Objet(xy), m_timer(20), m_portee(puissance), m_adressePersoProprio(proprietaire) 
+Bombe::Bombe(coord xy, int puissance, Personnage* proprietaire):
+    Objet(xy),
+    m_timer(20),
+    m_portee(puissance),
+    m_adressePersoProprio(proprietaire)
 {
 	instances.insert(this);   // créer un pointeur vers la bombe dans le tableau qui recense les instances de bombe.
 }
 
-Bombe::~Bombe() 
+Bombe::~Bombe()
 {
 	instances.erase(instances.find(this));  // on enleve le pointeur vers la bombe dans le tableau d'instances
 }
@@ -69,5 +73,9 @@ void Bombe::afficheExplosion()  // pour remplacer temporairement les blocs autou
 	// est-ce la bonne classe pour cette fonction ??
 }
 
+void Bombe::enleverAffichageExplosion()
+{
 
-std::set<Bombe const *> Bombe::instances;  // Initialisation de l'attribut statique (oui oui ca se met bien ds le cpp, cf sdz).pour etre conforme a http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class . 
+}
+
+std::set<Bombe*> Bombe::instances;  // Initialisation de l'attribut statique (oui oui ca se met bien ds le cpp, cf sdz).pour etre conforme a http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class .

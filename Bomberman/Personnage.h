@@ -9,23 +9,28 @@
 
 #include "Bombe.h"  // nécessaire pour appeler le constructeur de Bombe
 #include "Objet.h"
+#include "carte.h"
 
 class Personnage : public Objet
 {
 public:
 	Personnage(); // constructeur par défaut
 	Personnage(int typePerso);// 1 = joueur, sinon ennemi
-	static void		decrementeCompteurDeBombe(Personnage* p); 
+	static void		decrementeCompteurDeBombe(Personnage* p);
+
 	void    modifVie(int deltaVie); // en cas de gain de points vie (bonus) ou de perte (bombe), cette fonction ajuste les points du personnage
 	void    powerUpSacBombe(int deltaSac);
 	bool    estVivant();
 	int     afficheLastAction();
+	int     getVitesse();
+	void    modifVitesse(int deltaVitesse);
 	void    updateLastAction(time_t time);
-	void    deposeBombe(); // pas besoin de donner des coordonnees en argument, comme Personnage herite de Objet, m_coordonnees est un attribut de Personnage
-	void	deplacerhaut();
-	void	deplacerbas();
-	void	deplacergauche();
-	void	deplacerdroite();
+	void    deposeBombe(carte &m); // pas besoin de donner des coordonnees en argument, comme Personnage herite de Objet, m_coordonnees est un attribut de Personnage
+                                    // El : par contre, besoin de préciser la carte, pour que la bombe apparaisse vraiment dans le niveau (la fonction deposeBombe doit être à effet de bord)
+	void	deplacerhaut(carte &m); //El : idem
+	void	deplacerbas(carte &m);
+	void	deplacergauche(carte &m);
+	void	deplacerdroite(carte &m);
 
 private:
 	int		m_vie;
@@ -36,7 +41,10 @@ private:
 	int		m_typePerso; //permet de définir 1: joueur ; 2: ordi, déplacement suiveur ; 3: ordi, déplacement aléatoire
 	int		m_lastAction; // temps du dernier déplacement
 	int		m_idJoueur;  // nécessaire pour les bombes
+	int     m_vitesse;
 };
+
+void    deplacerPerso(carte &m, Personnage* perso, int direction);
 
 #endif
 

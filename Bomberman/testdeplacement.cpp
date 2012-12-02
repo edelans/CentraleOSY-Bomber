@@ -29,8 +29,8 @@ public:
 void drawing::initialize(const string file) const
 {
 	ifstream is(file); // tous les numéros codant les cases dans le fichier sont lues
-	if(!is) 
-        {       
+	if(!is)
+        {
             cerr << "Impossible d'ouvrir le fichier !" << endl;
         }
 	string s;
@@ -39,8 +39,8 @@ void drawing::initialize(const string file) const
 	longueur_niveau = (s.size()+1)/2; // on récupère la taille du niveau (nombre de cases sur une ligne)
 	is.seekg(0,ios::beg);
 
-	int décalage_X = (LONGUEUR_MAX - longueur_niveau)*TAILLE_CASE/2;
-	int décalage_Y = (LARGEUR_MAX - longueur_niveau)*TAILLE_CASE/2;
+	int decalage_X = (LONGUEUR_MAX - longueur_niveau)*TAILLE_CASE/2;
+	int decalage_Y = (LARGEUR_MAX - longueur_niveau)*TAILLE_CASE/2;
 
 	string nombre;
 	int NumeroCase = 1;
@@ -55,13 +55,13 @@ void drawing::initialize(const string file) const
 		switch (value)
 		{
 		case 1:
-			game.draw_image((NumeroColonne - 3/2)*TAILLE_CASE + décalage_X,(NumeroLigne - 3/2)*TAILLE_CASE + décalage_Y,sol);
+			game.draw_image((NumeroColonne - 3/2)*TAILLE_CASE + decalage_X,(NumeroLigne - 3/2)*TAILLE_CASE + decalage_Y,sol);
 			break;
 		case 2:
-			game.draw_image((NumeroColonne - 3/2)*TAILLE_CASE + décalage_X,(NumeroLigne - 3/2)*TAILLE_CASE + décalage_Y,murdestr);
+			game.draw_image((NumeroColonne - 3/2)*TAILLE_CASE + decalage_X,(NumeroLigne - 3/2)*TAILLE_CASE + decalage_Y,murdestr);
 			break;
 		case 3:
-			game.draw_image((NumeroColonne - 3/2)*TAILLE_CASE + décalage_X,(NumeroLigne - 3/2)*TAILLE_CASE + décalage_Y,mur);
+			game.draw_image((NumeroColonne - 3/2)*TAILLE_CASE + decalage_X,(NumeroLigne - 3/2)*TAILLE_CASE + decalage_Y,mur);
 			break;
 		default:
 			cerr << "Fichier non conforme au type attendu : la case numéro " << NumeroCase << " ne correspond pas à un type de terrain dans le champ attendu" << endl;
@@ -72,6 +72,10 @@ void drawing::initialize(const string file) const
 	is.close();
 }
 
+void drawing::initialiser(carte m) //initialiser l'affichage une fois le jeu chargé à partir des fichiers de config
+{
+
+}
 
 int main()
 {
@@ -92,7 +96,7 @@ int main()
 				cout << "Pas de touche" << endl;
 				gamerunning.draw_image(4*TAILLE_CASE,4*TAILLE_CASE,murdestr);
 				break;
-			case cimg::keyARROWUP: 
+			case cimg::keyARROWUP:
 				cout << "haut" << endl;
 				gamerunning.draw_image(4*TAILLE_CASE,3*TAILLE_CASE,murdestr);
 				break;

@@ -2,11 +2,23 @@
 
 
 
-Objet::Objet() : m_coordonnees(), m_passable(false)   // Ed: je sais pas quoi mettre ici pour les coordonnees du constructeur par defaut
+Objet::Objet():
+    m_coordonnees(coord (0,0)),
+    m_passable(false)   // Ed: je sais pas quoi mettre ici pour les coordonnees du constructeur par defaut
+                        // El : (0,0) c'est parfait, ce sera les coordonnees par defaut d'un objet n'etant pas encore place sur la carte
 {
 }
 
-Objet::Objet(coord xy) : m_coordonnees(xy), m_passable(false)  // surcharge du constructeur pour qu'il accepte d'etre initialisé avec des coordonnées en argument
+Objet::Objet(coord xy):
+    m_coordonnees(xy),
+    m_passable(false)  // surcharge du constructeur pour qu'il accepte d'etre initialisé avec des coordonnées en argument
+{
+}
+
+Objet::Objet(char* f):
+    m_image(f),
+    m_coordonnees(coord (0,0)),
+    m_passable(false)
 {
 }
 
@@ -34,3 +46,9 @@ void Objet::setCoord(int x, int y){
 bool Objet::estPassable(){
     return this->m_passable;}
 
+
+Image Objet::affiche()
+{
+    Image aff(this->m_image);
+    return aff;
+}

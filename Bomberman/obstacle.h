@@ -4,12 +4,12 @@
 #include "objet.h"
 #include "typeObstacle.h"
 
-using namespace std;
 
-class obstacle : public objet
+class Obstacle : public Objet
 {
     public:
-        obstacle(typeObstacle* t);
+        Obstacle(typeObstacle* t);
+        Obstacle(typeObstacle* t, char* f);//f est l'adresse du fichier image
         typeObstacle*   getType();
         void            changerType(typeObstacle*);
     private:

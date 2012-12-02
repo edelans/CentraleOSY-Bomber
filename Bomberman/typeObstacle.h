@@ -3,26 +3,34 @@
 
 #include <string>
 #include <map>
-
-using namespace std;
+#include <string>
+#include <cstring>
+#include <sstream>
+#include <fstream>
+#include <istream>
+#include <iomanip>
+#include <iostream>
+#include <stdio.h>
 
 class typeObstacle
 {
     public:
-        typeObstacle(bool destructible, bool passable, bool protection);
-        int     getId();
-        bool    estDestructible();
-        bool    estPassable();
-        bool    estProtection();
+        typeObstacle(bool destructible, bool passable, bool protection, char* f);//f est l'adresse de l'image
+        int         getId();
+        bool        estDestructible();
+        bool        estPassable();
+        bool        estProtection();
+        char*       getImage();
 
     private:
-        int     id;
-        bool    destructible;
-        bool    passable;
-        bool    protection;
+        int     m_id;
+        bool    m_destructible;
+        bool    m_passable;
+        bool    m_protection;
+        char*   m_image;
 };
 
-typedef map<string,typeObstacle*> listeTypeObstacle;
+typedef std::map<std::string,typeObstacle*> listeTypeObstacle;
 
 void initialiserTypeObstacle(listeTypeObstacle &types, const char * fichier);
 
