@@ -18,14 +18,14 @@ public:
 	Personnage(int typePerso);// 1 = joueur, sinon ennemi
 	static void		decrementeCompteurDeBombe(Personnage* p);
 
-	void    modifVie(int deltaVie); // en cas de gain de points vie (bonus) ou de perte (bombe), cette fonction ajuste les points du personnage
-	void    powerUpSacBombe(int deltaSac);
-	bool    estVivant();
-	int     afficheLastAction();
-	int     getVitesse();
-	void    modifVitesse(int deltaVitesse);
-	void    updateLastAction(time_t time);
-	void    deposeBombe(carte &m); // pas besoin de donner des coordonnees en argument, comme Personnage herite de Objet, m_coordonnees est un attribut de Personnage
+	void	modifVie(int deltaVie); // en cas de gain de points vie (bonus) ou de perte (bombe), cette fonction ajuste les points du personnage
+	void	powerUpSacBombe(int deltaSac);
+	bool	estVivant();
+	int		afficheLastAction();
+	int		getVitesse();
+	void	modifVitesse(int deltaVitesse);
+	void	updateLastAction(time_t time);
+	void	deposeBombe(carte &m); // pas besoin de donner des coordonnees en argument, comme Personnage herite de Objet, m_coordonnees est un attribut de Personnage
                                     // El : par contre, besoin de préciser la carte, pour que la bombe apparaisse vraiment dans le niveau (la fonction deposeBombe doit être à effet de bord)
 	void	deplacerhaut(carte &m); //El : idem
 	void	deplacerbas(carte &m);
