@@ -10,7 +10,7 @@ using namespace std;
 
 void Bombe::boucleTestTimerPourExplosion() // fonciton à rajouter dans le main.cpp à chaque fin de "boucle de temps"
 {
-	for_each (instances.begin(), instances.end(), testTimerPourExplosion);  // pour toutes les bombes sur la carte: trouver un moyen de pouvoir les parcourir: probablement avec un tableau dynamique statique dont les cases enregistrent un pointeur vers chaque instance. Creuser aussi http://stackoverflow.com/questions/3208958/how-to-keep-a-list-of-instances-of-a-class
+	for_each (instances.begin(), instances.end(), testTimerPourExplosion);  // pour toutes les bombes instanciées, on teste le timer et on agit en conséquence.
 }
 
 
