@@ -81,12 +81,6 @@
     <ClCompile Include="drawing.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="main2.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="objet.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -115,6 +109,12 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="testdeplacement.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="mainsecond.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
