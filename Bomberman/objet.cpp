@@ -3,9 +3,8 @@
 
 
 Objet::Objet():
-    m_coordonnees(coord (0,0)),
-    m_passable(false)   // Ed: je sais pas quoi mettre ici pour les coordonnees du constructeur par defaut
-                        // El : (0,0) c'est parfait, ce sera les coordonnees par defaut d'un objet n'etant pas encore place sur la carte
+    m_coordonnees(coord (0,0)),  // Ed: je sais pas quoi mettre ici pour les coordonnees du constructeur par defaut
+    m_passable(false)            // El : (0,0) c'est parfait, ce sera les coordonnees par defaut d'un objet n'etant pas encore place sur la carte
 {
 }
 

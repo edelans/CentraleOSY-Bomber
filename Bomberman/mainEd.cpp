@@ -13,5 +13,5 @@ using namespace std;
 int main()
 {
 	Bombe a,b,c;
-	cout << "Il y a" << (int) Bombe::instances.size() << "instances de Bombe" << endl;
+//	cout << "Il y a" << (int) Bombe::instances.size() << "instances de Bombe" << endl;
 }

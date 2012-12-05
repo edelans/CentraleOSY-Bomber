@@ -7,9 +7,11 @@
 //#include <iomanip>
 //#include <fstream>
 
-#include "Bombe.h"  // nécessaire pour appeler le constructeur de Bombe
+#include "bombe.h"  // nécessaire pour appeler le constructeur de Bombe
 #include "Objet.h"
 #include "carte.h"
+
+class Bombe;
 
 class Personnage : public Objet
 {

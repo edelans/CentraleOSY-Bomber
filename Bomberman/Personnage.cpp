@@ -97,15 +97,11 @@ void Personnage::updateLastAction(time_t time)
 
 void Personnage::deposeBombe(carte &m)
 {
-	coord c = this->getCoord();
-	int sc = this->m_scopeDestruction;
-
-	if (this->m_compteurDeBombe<this->m_tailleSacBombe)
+	if (m_compteurDeBombe<m_tailleSacBombe)
 	{
-		Bombe *b = new Bombe(c, sc, this);   //on appelle le constructeur de la classe Bombe avec les coordonnées du personnage.
-
-		deplacer(m, b, c.first, c.second);
-		this->m_compteurDeBombe +=1;
+		Bombe b( m_coordonnees, m_scopeDestruction, this);   //on appelle le constructeur de la classe Bombe avec les coordonnées du personnage.
+		deplacer(m, &b, m_coordonnees.first, m_coordonnees.second);  // a checker pour le & ...
+		m_compteurDeBombe +=1;
 	}
 }
 
