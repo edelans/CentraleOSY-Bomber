@@ -21,8 +21,6 @@ void Bombe::testTimerPourExplosion(Bombe* b)
 			b->enleverAffichageExplosion();
 			Personnage::decrementeCompteurDeBombe(b->m_adressePersoProprio); 			// il manque ici la decrementation du compteurDeBombe du personnage !!!! /////////////\\\\\\\\\\\\\\\\\\\ !!!!!!!!!!!!
 			b->~Bombe();
-
-
 		}
 		else if (b->m_timer > 0 && b->m_timer < 5 )  // c'est ici qu'est réglée la durée de l'explosion !
 		{
